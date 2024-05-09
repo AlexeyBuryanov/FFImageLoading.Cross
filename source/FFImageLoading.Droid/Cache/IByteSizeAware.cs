@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FFImageLoading
+﻿namespace FFImageLoading.Droid.Cache
 {
     public interface IByteSizeAware
     {

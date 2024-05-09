@@ -1,19 +1,18 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Android.Content;
+﻿using Android.Content;
 using Android.Graphics;
-using FFImageLoading.Cache;
-using FFImageLoading.Config;
-using FFImageLoading.Drawables;
-using FFImageLoading.Extensions;
-using FFImageLoading.Work;
 using FFImageLoading.Decoders;
-using System.Collections.Generic;
+using FFImageLoading.Droid.Cache;
+using FFImageLoading.Droid.Decoders;
+using FFImageLoading.Droid.Drawables;
+using FFImageLoading.Droid.Extensions;
+using FFImageLoading.Extensions;
 using FFImageLoading.Helpers;
-using Android.Widget;
+using FFImageLoading.Work;
+using Color = Android.Graphics.Color;
 
-namespace FFImageLoading
+using Paint = Android.Graphics.Paint;
+
+namespace FFImageLoading.Droid.Work
 {
     public class PlatformImageLoaderTask<TImageView> : ImageLoaderTask<Bitmap, SelfDisposingBitmapDrawable, TImageView> where TImageView : class
     {
@@ -27,7 +26,7 @@ namespace FFImageLoading
 
         protected Context Context => new ContextWrapper(Android.App.Application.Context);
 
-        protected async override Task SetTargetAsync(SelfDisposingBitmapDrawable image, bool animated)
+        protected override async Task SetTargetAsync(SelfDisposingBitmapDrawable image, bool animated)
         {
             if (Target == null)
                 return;

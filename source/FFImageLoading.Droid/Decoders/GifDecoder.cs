@@ -1,14 +1,13 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using Android.Graphics;
-using FFImageLoading.Work;
-using FFImageLoading.Helpers;
-using FFImageLoading.Extensions;
+﻿using Android.Graphics;
 using FFImageLoading.Config;
+using FFImageLoading.Decoders;
+using FFImageLoading.Droid.Extensions;
+using FFImageLoading.Extensions;
+using FFImageLoading.Helpers;
 using FFImageLoading.Helpers.Gif;
+using FFImageLoading.Work;
 
-namespace FFImageLoading.Decoders
+namespace FFImageLoading.Droid.Decoders
 {
 	public class GifDecoder : IDecoder<Bitmap>
 	{

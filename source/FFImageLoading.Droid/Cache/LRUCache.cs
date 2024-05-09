@@ -1,7 +1,6 @@
-﻿using System;
-using FFImageLoading.Drawables;
+﻿using FFImageLoading.Droid.Drawables;
 
-namespace FFImageLoading.Cache
+namespace FFImageLoading.Droid.Cache
 {
     public class LRUCache : Android.Util.LruCache
     {

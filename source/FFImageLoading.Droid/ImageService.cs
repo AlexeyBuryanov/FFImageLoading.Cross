@@ -1,14 +1,15 @@
-﻿using System;
-using System.IO;
+﻿using System.Runtime.CompilerServices;
 using FFImageLoading.Cache;
-using FFImageLoading.Drawables;
+using FFImageLoading.Config;
+using FFImageLoading.Droid.Cache;
+using FFImageLoading.Droid.DataResolvers;
+using FFImageLoading.Droid.Drawables;
+using FFImageLoading.Droid.Helpers;
+using FFImageLoading.Droid.Work;
 using FFImageLoading.Helpers;
 using FFImageLoading.Work;
-using FFImageLoading.DataResolvers;
-using System.Runtime.CompilerServices;
-using FFImageLoading.Config;
 
-namespace FFImageLoading
+namespace FFImageLoading.Droid
 {
     /// <summary>
     /// FFImageLoading by Daniel Luberda

@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using FFImageLoading.Drawables;
+﻿using FFImageLoading.Droid.Drawables;
 
-namespace FFImageLoading.Cache
+namespace FFImageLoading.Droid.Cache
 {
     public class ByteBoundStrongLruCache<TValue> where TValue : Java.Lang.Object, ISelfDisposingBitmapDrawable
     {

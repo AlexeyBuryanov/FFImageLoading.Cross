@@ -1,10 +1,7 @@
-﻿using FFImageLoading.Work;
-using System.IO;
-using FFImageLoading.IO;
-using System.Threading.Tasks;
-using System.Threading;
+﻿using FFImageLoading.IO;
+using FFImageLoading.Work;
 
-namespace FFImageLoading.DataResolvers
+namespace FFImageLoading.Droid.DataResolvers
 {
     public class FileDataResolver : IDataResolver
     {

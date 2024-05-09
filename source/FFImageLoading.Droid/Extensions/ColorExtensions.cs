@@ -1,7 +1,6 @@
-﻿using System;
-using Android.Graphics;
+﻿using Color = Android.Graphics.Color;
 
-namespace FFImageLoading
+namespace FFImageLoading.Droid.Extensions
 {
     public static class ColorExtensions
     {

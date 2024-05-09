@@ -1,8 +1,8 @@
-﻿using System;
-using Android.Graphics;
+﻿using Android.Graphics;
+using FFImageLoading.Extensions;
 using FFImageLoading.Helpers.Exif;
 
-namespace FFImageLoading.Extensions
+namespace FFImageLoading.Droid.Extensions
 {
     public static class ExifExtensions
     {

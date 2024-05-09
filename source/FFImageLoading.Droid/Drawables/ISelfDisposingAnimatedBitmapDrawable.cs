@@ -1,7 +1,7 @@
-﻿using System;
-using Android.Graphics;
+﻿using Android.Graphics;
+using FFImageLoading.Decoders;
 
-namespace FFImageLoading.Drawables
+namespace FFImageLoading.Droid.Drawables
 {
 	public interface ISelfDisposingAnimatedBitmapDrawable : ISelfDisposingBitmapDrawable
 	{

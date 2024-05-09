@@ -1,11 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
-using FFImageLoading.Drawables;
+﻿using System.Diagnostics;
 using Android.Graphics;
+using FFImageLoading.Droid.Drawables;
 
-namespace FFImageLoading
+namespace FFImageLoading.Droid.Helpers
 {
     internal class HighResolutionTimer<TImageContainer> where TImageContainer: class
     {

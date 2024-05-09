@@ -1,4 +1,4 @@
-//
+﻿//
 // SelfDisposingBitmapDrawable.cs
 //
 // Author:
@@ -9,12 +9,10 @@
 
 using Android.Content.Res;
 using Android.Graphics;
-using System;
 using Android.Graphics.Drawables;
 using Android.Runtime;
-using System.IO;
 
-namespace FFImageLoading.Drawables
+namespace FFImageLoading.Droid.Drawables
 {
     /// <summary>
     /// A BitmapDrawable that uses reference counting to determine when internal resources

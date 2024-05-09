@@ -1,10 +1,8 @@
-using System;
-using Android.Content;
-using Android.Util;
+﻿using Android.Content;
 using Android.Runtime;
-using Android.Widget;
+using Android.Util;
 
-namespace FFImageLoading.Views
+namespace FFImageLoading.Droid.Views
 {
     [Preserve(AllMembers = true)]
     [Register("ffimageloading.views.ImageViewAsync")]

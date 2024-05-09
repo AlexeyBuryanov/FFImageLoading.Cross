@@ -1,9 +1,8 @@
-﻿using System;
-using Android.Graphics.Drawables;
-using FFImageLoading.Drawables;
+﻿using Android.Graphics.Drawables;
+using FFImageLoading.Droid.Drawables;
 using FFImageLoading.Work;
 
-namespace FFImageLoading.Targets
+namespace FFImageLoading.Droid.Targets
 {
 	public abstract class ViewTarget<TView> : Target<SelfDisposingBitmapDrawable, TView> where TView : Android.Views.View
 	{

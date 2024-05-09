@@ -1,6 +1,6 @@
 ﻿using Android.OS;
 
-namespace FFImageLoading.Helpers
+namespace FFImageLoading.Droid.Helpers
 {
 	internal static class Utils
 	{

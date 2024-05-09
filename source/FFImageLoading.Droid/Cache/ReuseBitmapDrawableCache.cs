@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using System;
-using Android.Graphics;
+﻿using Android.Graphics;
+using FFImageLoading.Droid.Drawables;
+using FFImageLoading.Droid.Extensions;
+using FFImageLoading.Droid.Helpers;
 using FFImageLoading.Helpers;
-using FFImageLoading.Drawables;
 
-namespace FFImageLoading.Cache
+namespace FFImageLoading.Droid.Cache
 {
     public class ReuseBitmapDrawableCache<TValue> where TValue : Java.Lang.Object, ISelfDisposingBitmapDrawable
     {
@@ -40,7 +40,7 @@ namespace FFImageLoading.Cache
         private readonly ByteBoundStrongLruCache<TValue> _reuse_pool;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:FFImageLoading.Cache.ReuseBitmapDrawableCache`1"/> class.
+        /// Initializes a new instance of the <see cref="T:FFImageLoading.Droid.Cache.ReuseBitmapDrawableCache`1"/> class.
         /// </summary>
         /// <param name="logger">Logger.</param>
         /// <param name="memoryCacheSize">Memory cache size.</param>

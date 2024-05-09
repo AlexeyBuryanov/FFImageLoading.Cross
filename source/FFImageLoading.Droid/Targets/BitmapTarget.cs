@@ -1,8 +1,7 @@
-﻿using System;
+﻿using FFImageLoading.Droid.Drawables;
 using FFImageLoading.Work;
-using FFImageLoading.Drawables;
 
-namespace FFImageLoading.Targets
+namespace FFImageLoading.Droid.Targets
 {
     public class BitmapTarget : Target<SelfDisposingBitmapDrawable, ISelfDisposingBitmapDrawable>
     {

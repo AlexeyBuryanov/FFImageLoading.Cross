@@ -1,10 +1,7 @@
-﻿using System;
-using Android.Graphics.Drawables;
-using FFImageLoading.Drawables;
-using System.IO;
-using System.Threading.Tasks;
+﻿using Android.Graphics.Drawables;
+using FFImageLoading.Droid.Drawables;
 
-namespace FFImageLoading
+namespace FFImageLoading.Droid.Extensions
 {
     public static class DrawableExtensions
     {

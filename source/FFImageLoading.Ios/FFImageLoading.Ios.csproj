@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-ios</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <AssemblyName>Cross.FFImageLoading.Ios</AssemblyName>
+    <RootNamespace>Cross.FFImageLoading.Ios</RootNamespace>
+    <PackageId>Cross.FFImageLoading.Ios</PackageId>
+    <PackageProjectUrl>https://github.com/AlexeyBuryanov/FFImageLoading.Cross</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AlexeyBuryanov/FFImageLoading.Cross</RepositoryUrl>
+    <Description>Image loading, caching and transforming library for .NET Android, .NET iOS.</Description>
+    <Version>1.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Oleksii Burianov; Daniel Luberda; Fabien Molinet</Authors>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>net8; net8-ios; image; cache; caching; memory; load; loading</PackageTags>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FFImageLoading\FFImageLoading.csproj" />
+  </ItemGroup>
+</Project>

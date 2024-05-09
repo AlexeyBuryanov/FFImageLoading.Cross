@@ -1,12 +1,13 @@
-﻿using System;
-using Android.Graphics.Drawables;
-using Android.Runtime;
-using Android.OS;
-using Android.Content.Res;
+﻿using Android.Content.Res;
 using Android.Graphics;
-using System.IO;
+using Android.Graphics.Drawables;
+using Android.OS;
+using Android.Runtime;
+using FFImageLoading.Droid.Extensions;
+using Color = Android.Graphics.Color;
+using Rect = Android.Graphics.Rect;
 
-namespace FFImageLoading.Drawables
+namespace FFImageLoading.Droid.Drawables
 {
     public class FFBitmapDrawable : SelfDisposingBitmapDrawable
     {

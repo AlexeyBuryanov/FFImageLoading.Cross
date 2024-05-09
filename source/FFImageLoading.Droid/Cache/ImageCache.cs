@@ -1,17 +1,17 @@
-﻿using Android.Graphics;
-using Android.Graphics.Drawables;
-using Math = System.Math;
-using FFImageLoading.Helpers;
+﻿using System.Collections.Concurrent;
 using Android.Content;
-using Android.App;
 using Android.Content.PM;
-using FFImageLoading.Drawables;
-using System;
+using Android.Graphics;
+using Android.Graphics.Drawables;
+using FFImageLoading.Droid.Drawables;
+using FFImageLoading.Droid.Extensions;
+using FFImageLoading.Droid.Helpers;
+using FFImageLoading.Helpers;
 using FFImageLoading.Work;
-using System.Collections.Concurrent;
-using System.Linq;
+using Math = System.Math;
+using Application = Android.App.Application;
 
-namespace FFImageLoading.Cache
+namespace FFImageLoading.Droid.Cache
 {
     public class ImageCache : ImageCache<SelfDisposingBitmapDrawable>
     {

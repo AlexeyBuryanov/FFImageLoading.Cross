@@ -1,10 +1,9 @@
 ﻿using Android.Content.Res;
 using Android.Graphics;
-using System;
 using Android.Runtime;
-using System.IO;
+using FFImageLoading.Decoders;
 
-namespace FFImageLoading.Drawables
+namespace FFImageLoading.Droid.Drawables
 {
     public class FFAnimatedDrawable : SelfDisposingBitmapDrawable, ISelfDisposingAnimatedBitmapDrawable
 	{

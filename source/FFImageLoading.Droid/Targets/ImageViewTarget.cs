@@ -1,13 +1,11 @@
-﻿using System;
-using FFImageLoading.Drawables;
-using FFImageLoading.Work;
+﻿using System.Runtime.CompilerServices;
 using Android.Graphics.Drawables;
-using Android.Widget;
-using System.Linq;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using FFImageLoading.Droid.Drawables;
+using FFImageLoading.Droid.Extensions;
+using FFImageLoading.Droid.Helpers;
+using FFImageLoading.Work;
 
-namespace FFImageLoading.Targets
+namespace FFImageLoading.Droid.Targets
 {
     public class ImageViewTarget : ViewTarget<ImageView>
     {

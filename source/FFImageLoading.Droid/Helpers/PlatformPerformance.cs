@@ -1,7 +1,8 @@
-﻿using Android.App;
+﻿using FFImageLoading.Helpers;
 using Java.Lang;
+using Application = Android.App.Application;
 
-namespace FFImageLoading
+namespace FFImageLoading.Droid.Helpers
 {
     public class PlatformPerformance : IPlatformPerformance
     {

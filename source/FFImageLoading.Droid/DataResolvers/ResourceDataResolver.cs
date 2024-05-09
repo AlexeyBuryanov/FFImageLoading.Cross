@@ -1,11 +1,8 @@
-﻿using FFImageLoading.Work;
-using System.Threading.Tasks;
+﻿using System.Collections.Concurrent;
 using Android.Content;
-using System.IO;
-using System.Collections.Concurrent;
-using System.Threading;
+using FFImageLoading.Work;
 
-namespace FFImageLoading.DataResolvers
+namespace FFImageLoading.Droid.DataResolvers
 {
     public class ResourceDataResolver : IDataResolver
     {

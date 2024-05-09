@@ -1,7 +1,7 @@
-﻿using System;
-using Android.Graphics;
+﻿using Android.Graphics;
+using FFImageLoading.Cache;
 
-namespace FFImageLoading.Cache
+namespace FFImageLoading.Droid.Cache
 {
     public interface IImageCache<TValue> : IMemoryCache<TValue>
     {

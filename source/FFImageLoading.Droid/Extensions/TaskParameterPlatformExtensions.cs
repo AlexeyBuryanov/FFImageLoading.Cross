@@ -1,12 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using FFImageLoading.Droid.Drawables;
+using FFImageLoading.Droid.Targets;
+using FFImageLoading.Extensions;
 using FFImageLoading.Work;
-using System.IO;
-using FFImageLoading.Targets;
-using FFImageLoading.Drawables;
-using Android.Widget;
 
-namespace FFImageLoading
+namespace FFImageLoading.Droid.Extensions
 {
     /// <summary>
     /// TaskParameterPlatformExtensions

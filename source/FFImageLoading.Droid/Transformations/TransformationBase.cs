@@ -1,7 +1,8 @@
 ﻿using Android.Graphics;
+using FFImageLoading.Droid.Work;
 using FFImageLoading.Work;
 
-namespace FFImageLoading.Transformations
+namespace FFImageLoading.Droid.Transformations
 {
     public abstract class TransformationBase : ITransformation
     {
@@ -10,6 +11,7 @@ namespace FFImageLoading.Transformations
         public IBitmap Transform(IBitmap bitmapHolder, string path, ImageSource source, bool isPlaceholder, string key)
         {
             var sourceBitmap = bitmapHolder.ToNative();
+
             return new BitmapHolder(Transform(sourceBitmap, path, source, isPlaceholder, key));
         }
 

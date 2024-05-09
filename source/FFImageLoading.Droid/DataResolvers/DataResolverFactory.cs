@@ -1,8 +1,9 @@
-﻿using System;
-using FFImageLoading.Config;
+﻿using FFImageLoading.Config;
+using FFImageLoading.DataResolvers;
+using FFImageLoading.Extensions;
 using FFImageLoading.Work;
 
-namespace FFImageLoading.DataResolvers
+namespace FFImageLoading.Droid.DataResolvers
 {
     public class DataResolverFactory : IDataResolverFactory
     {

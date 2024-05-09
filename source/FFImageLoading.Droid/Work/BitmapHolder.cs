@@ -1,6 +1,7 @@
 ﻿using Android.Graphics;
+using FFImageLoading.Work;
 
-namespace FFImageLoading.Work
+namespace FFImageLoading.Droid.Work
 {
     public class BitmapHolder: IBitmap
     {
@@ -20,7 +21,7 @@ namespace FFImageLoading.Work
         }
     }
 
-    public static class IBitmapExtensions
+    public static class BitmapExtensions
     {
         public static Bitmap ToNative(this IBitmap bitmap)
         {

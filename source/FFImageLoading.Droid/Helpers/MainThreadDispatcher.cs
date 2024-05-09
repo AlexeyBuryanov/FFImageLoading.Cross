@@ -1,8 +1,7 @@
-﻿using System;
-using Android.OS;
-using System.Threading.Tasks;
+﻿using Android.OS;
+using FFImageLoading.Helpers;
 
-namespace FFImageLoading.Helpers
+namespace FFImageLoading.Droid.Helpers
 {
     public class MainThreadDispatcher : IMainThreadDispatcher
     {

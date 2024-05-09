@@ -1,12 +1,8 @@
-﻿using System;
-using System.IO;
-using FFImageLoading.Work;
-using Android.Content;
+﻿using Android.Content;
 using Android.Content.Res;
-using System.Threading.Tasks;
-using System.Threading;
+using FFImageLoading.Work;
 
-namespace FFImageLoading.DataResolvers
+namespace FFImageLoading.Droid.DataResolvers
 {
     public class BundleDataResolver : IDataResolver
     {

@@ -1,7 +1,7 @@
-﻿using System;
-using Android.Graphics;
+﻿using Android.Graphics;
+using FFImageLoading.Droid.Cache;
 
-namespace FFImageLoading.Drawables
+namespace FFImageLoading.Droid.Drawables
 {
     public interface ISelfDisposingBitmapDrawable : IByteSizeAware
     {

@@ -1,18 +1,17 @@
-﻿using System;
+﻿using Android.Content;
 using Android.Graphics;
-using FFImageLoading.Work;
-using System.IO;
-using System.Threading.Tasks;
-using FFImageLoading.Drawables;
-using FFImageLoading.Cache;
-using FFImageLoading.Helpers;
 using FFImageLoading.Config;
+using FFImageLoading.Decoders;
+using FFImageLoading.Droid.Cache;
+using FFImageLoading.Droid.Drawables;
+using FFImageLoading.Droid.Extensions;
+using FFImageLoading.Droid.Helpers;
 using FFImageLoading.Extensions;
-using System.Linq;
+using FFImageLoading.Helpers;
 using FFImageLoading.Helpers.Exif;
-using Android.Content;
+using FFImageLoading.Work;
 
-namespace FFImageLoading.Decoders
+namespace FFImageLoading.Droid.Decoders
 {
     public class BaseDecoder : IDecoder<Bitmap>
     {

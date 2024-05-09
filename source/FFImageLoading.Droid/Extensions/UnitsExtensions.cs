@@ -1,4 +1,4 @@
-﻿namespace FFImageLoading.Extensions
+﻿namespace FFImageLoading.Droid.Extensions
 {
     public static class UnitsExtensions
     {
