@@ -2,7 +2,7 @@
 
 Library to load images quickly & easily on .NET iOS, .NET Android, MvvmCross.
 
-NuGet:
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Static Badge](https://img.shields.io/badge/Core-v1.0.0-blue)](https://www.nuget.org/packages/Cross.FFImageLoading.Core/)
 [![Static Badge](https://img.shields.io/badge/Android-v1.0.0-blue)](https://www.nuget.org/packages/Cross.FFImageLoading.Android/)
 [![Static Badge](https://img.shields.io/badge/iOS-v1.0.0-blue)](https://www.nuget.org/packages/Cross.FFImageLoading.Ios/)
