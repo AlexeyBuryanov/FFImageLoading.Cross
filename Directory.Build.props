@@ -1,0 +1,44 @@
+<Project>
+
+  <PropertyGroup>
+    <NetVersion>net9.0</NetVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsTrimmable>true</IsTrimmable>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageVersion>1.1.0.0</PackageVersion>
+    <PackageProjectUrl>https://github.com/AlexeyBuryanov/FFImageLoading.Cross</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AlexeyBuryanov/FFImageLoading.Cross</RepositoryUrl>
+    <Description>Image loading, caching and transforming library for .NET Android, .NET iOS.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Oleksii Burianov; Daniel Luberda; Fabien Molinet</Authors>
+    <Owners>Oleksii Burianov</Owners>
+    <Copyright>© Oleksii Burianov.</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>image; cache; caching; memory; load; loading</PackageTags>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
