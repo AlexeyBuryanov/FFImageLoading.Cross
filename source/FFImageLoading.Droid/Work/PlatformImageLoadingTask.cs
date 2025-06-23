@@ -202,7 +202,10 @@ namespace FFImageLoading.Droid.Work
 
                 if (result == null || !result.HasValidBitmap)
                 {
-                    throw new BadImageFormatException("Not a valid bitmap");
+	                var emptyBitmap = Bitmap.CreateBitmap(1, 1, Bitmap.Config.Argb8888);
+	                emptyBitmap.EraseColor(Color.Transparent);
+
+	                result = new SelfDisposingBitmapDrawable(emptyBitmap);
                 }
 
                 return Task.FromResult(result);

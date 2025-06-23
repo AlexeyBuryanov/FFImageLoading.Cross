@@ -105,18 +105,18 @@ namespace FFImageLoading.Cache
 
                         if (!response.IsSuccessStatusCode)
                         {
-                            if (response.Content == null)
-                                throw new DownloadHttpStatusCodeException(response.StatusCode);
+	                        if (response.Content == null)
+		                        return [];
 
                             using (response.Content)
                             {
                                 var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                                throw new DownloadHttpStatusCodeException(response.StatusCode, content);
+                                return [];
                             }
                         }
 
                         if (response.Content == null)
-                            throw new DownloadException("No content");
+                            return [];
 
                         var mediaType = response.Content.Headers?.ContentType?.MediaType;
                         if (!string.IsNullOrWhiteSpace(mediaType) && !mediaType.StartsWith("image/", StringComparison.OrdinalIgnoreCase))
@@ -206,4 +206,3 @@ namespace FFImageLoading.Cache
         }
     }
 }
-
