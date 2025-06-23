@@ -1,16 +1,16 @@
-<Project>
+﻿<Project>
 
   <PropertyGroup>
     <NetVersion>net9.0</NetVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsTrimmable>true</IsTrimmable>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>1.1.0.0</PackageVersion>
+    <PackageVersion>1.1.1.0-preview</PackageVersion>
     <PackageProjectUrl>https://github.com/AlexeyBuryanov/FFImageLoading.Cross</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexeyBuryanov/FFImageLoading.Cross</RepositoryUrl>
     <Description>Image loading, caching and transforming library for .NET Android, .NET iOS.</Description>
@@ -24,6 +24,8 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   
   <ItemGroup>
