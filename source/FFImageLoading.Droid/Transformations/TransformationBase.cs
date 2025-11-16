@@ -12,14 +12,6 @@ namespace FFImageLoading.Droid.Transformations
         {
             var sourceBitmap = bitmapHolder.ToNative();
 
-            if (sourceBitmap == null)
-            {
-	            var emptyBitmap = Bitmap.CreateBitmap(1, 1, Bitmap.Config.Argb8888);
-	            emptyBitmap.EraseColor(Color.Transparent);
-
-	            sourceBitmap = emptyBitmap;
-            }
-
             return new BitmapHolder(Transform(sourceBitmap, path, source, isPlaceholder, key));
         }
 
@@ -29,3 +21,4 @@ namespace FFImageLoading.Droid.Transformations
         }
     }
 }
+

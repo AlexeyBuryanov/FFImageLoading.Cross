@@ -24,11 +24,11 @@ namespace FFImageLoading.DataResolvers
 
             if (resolved.Stream != null)
             {
-	            if (resolved.Stream.Length == 0)
-		            return resolved;
+                if (resolved.Stream.Length == 0)
+                    throw new InvalidDataException("Zero length stream");
 
                 if (resolved.Stream.Length < 32)
-	                return resolved;
+                    throw new InvalidDataException("Invalid stream");
 
                 if (resolved.ImageInformation.Type == ImageInformation.ImageType.Unknown)
                 {

@@ -34,6 +34,7 @@ namespace FFImageLoading.Helpers
                             case System.Net.HttpStatusCode.MethodNotAllowed:
                             case System.Net.HttpStatusCode.Moved:
                             case System.Net.HttpStatusCode.NoContent:
+                            case System.Net.HttpStatusCode.NotFound:
                             case System.Net.HttpStatusCode.PaymentRequired:
                             case System.Net.HttpStatusCode.PreconditionFailed:
                             case System.Net.HttpStatusCode.ProxyAuthenticationRequired:
