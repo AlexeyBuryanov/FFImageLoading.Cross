@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>$(NetVersion)-ios</TargetFramework>
+    <TargetFrameworks>$(NetVersionIos)</TargetFrameworks>
     <RuntimeIdentifiers>ios-arm64;iossimulator-x64</RuntimeIdentifiers>
     <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
     <AssemblyName>Cross.FFImageLoading.Ios</AssemblyName>

@@ -1,0 +1,40 @@
+name: Publish to NuGet
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  publish:
+    runs-on: macos-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+            10.0.x
+
+      - name: Install workloads
+        run: dotnet workload install android ios
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      - name: NuGet login (Trusted Publishing)
+        uses: nuget/login@v1
+        with:
+          user: Oleksii_Burianov
+
+      - name: Push to NuGet
+        run: |
+          dotnet nuget push source/FFImageLoading/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push source/FFImageLoading.Droid/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push source/FFImageLoading.Ios/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
