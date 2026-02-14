@@ -52,13 +52,39 @@ namespace FFImageLoading.Droid.DataResolvers
                     stream.Dispose();
                     return Task.FromResult(ResolveXmlDrawable(resourceId, imageInformation));
                 }
-                stream.Position = 0;
 
                 if (firstByte == 0x03)
                 {
                     // Binary XML resource - use drawable inflation instead
                     stream.Dispose();
                     return Task.FromResult(ResolveXmlDrawable(resourceId, imageInformation));
+                }
+
+                // Reset stream position after peeking; not all streams support seeking,
+                // so copy to a MemoryStream if needed.
+                if (stream.CanSeek)
+                {
+                    stream.Position = 0;
+                }
+                else
+                {
+                    var memoryStream = new MemoryStream();
+                    try
+                    {
+                        memoryStream.WriteByte((byte)firstByte);
+                        stream.CopyTo(memoryStream);
+                    }
+                    catch
+                    {
+                        memoryStream.Dispose();
+                        throw;
+                    }
+                    finally
+                    {
+                        stream.Dispose();
+                    }
+                    memoryStream.Position = 0;
+                    stream = memoryStream;
                 }
 
                 return Task.FromResult(new DataResolverResult(
