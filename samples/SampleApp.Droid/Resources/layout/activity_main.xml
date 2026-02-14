@@ -22,7 +22,7 @@
         android:textSize="14sp"
         android:layout_marginBottom="8dp" />
 
-    <ImageView
+    <ffimageloading.cross.MvxCachedImageView
         android:id="@+id/imageWithXmlPlaceholder"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -38,7 +38,7 @@
         android:textSize="14sp"
         android:layout_marginBottom="8dp" />
 
-    <ImageView
+    <ffimageloading.cross.MvxCachedImageView
         android:id="@+id/imageWithXmlErrorPlaceholder"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -54,7 +54,7 @@
         android:textSize="14sp"
         android:layout_marginBottom="8dp" />
 
-    <ImageView
+    <ffimageloading.cross.MvxCachedImageView
         android:id="@+id/imageWithBothXmlPlaceholders"
         android:layout_width="200dp"
         android:layout_height="200dp"
