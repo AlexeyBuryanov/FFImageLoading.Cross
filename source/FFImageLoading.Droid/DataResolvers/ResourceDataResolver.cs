@@ -1,17 +1,21 @@
 ﻿using System.Collections.Concurrent;
 using Android.Content;
+using Android.Graphics;
+using Android.Graphics.Drawables;
+using FFImageLoading.Decoders;
 using FFImageLoading.Work;
 
 namespace FFImageLoading.Droid.DataResolvers
 {
     public class ResourceDataResolver : IDataResolver
     {
+        private const int DefaultDrawableSizePx = 64;
         static ConcurrentDictionary<string, int> _resourceIdentifiersCache = new ConcurrentDictionary<string, int>();
 
         public virtual Task<DataResolverResult> Resolve(string identifier, TaskParameter parameters, CancellationToken token)
         {
             // Resource name is always without extension
-            string resourceName = Path.GetFileNameWithoutExtension(identifier);
+            string resourceName = System.IO.Path.GetFileNameWithoutExtension(identifier);
 
             if (!_resourceIdentifiersCache.TryGetValue(resourceName, out var resourceId))
             {
@@ -24,17 +28,99 @@ namespace FFImageLoading.Droid.DataResolvers
                 throw new FileNotFoundException(identifier);
 
             token.ThrowIfCancellationRequested();
-            Stream stream  = Context.Resources.OpenRawResource(resourceId);
-
-            if (stream == null)
-                throw new FileNotFoundException(identifier);
 
             var imageInformation = new ImageInformation();
             imageInformation.SetPath(identifier);
             imageInformation.SetFilePath(identifier);
 
-            return Task.FromResult(new DataResolverResult(
-                stream, LoadingResult.CompiledResource, imageInformation));
+            // Try to open as a raw resource stream (works for PNG, JPEG, etc.)
+            // For XML-based drawables (vector, shape, layer-list, etc.), OpenRawResource
+            // may throw or return XML that BitmapFactory cannot decode.
+            try
+            {
+                Stream stream = Context.Resources.OpenRawResource(resourceId);
+
+                if (stream == null)
+                    throw new FileNotFoundException(identifier);
+
+                // Check if the stream starts with an Android binary XML header (first byte 0x03)
+                var firstByte = stream.ReadByte();
+
+                // If no data is available, treat as invalid/unsupported raw resource
+                if (firstByte == -1)
+                {
+                    stream.Dispose();
+                    return Task.FromResult(ResolveXmlDrawable(resourceId, imageInformation));
+                }
+
+                if (firstByte == 0x03)
+                {
+                    // Binary XML resource - use drawable inflation instead
+                    stream.Dispose();
+                    return Task.FromResult(ResolveXmlDrawable(resourceId, imageInformation));
+                }
+
+                // Reset stream position after peeking; not all streams support seeking,
+                // so copy to a MemoryStream if needed.
+                if (stream.CanSeek)
+                {
+                    stream.Position = 0;
+                }
+                else
+                {
+                    var memoryStream = new MemoryStream();
+                    try
+                    {
+                        memoryStream.WriteByte((byte)firstByte);
+                        stream.CopyTo(memoryStream);
+                    }
+                    catch
+                    {
+                        memoryStream.Dispose();
+                        throw;
+                    }
+                    finally
+                    {
+                        stream.Dispose();
+                    }
+                    memoryStream.Position = 0;
+                    stream = memoryStream;
+                }
+
+                return Task.FromResult(new DataResolverResult(
+                    stream, LoadingResult.CompiledResource, imageInformation));
+            }
+            catch (Exception ex) when (ex is not OperationCanceledException)
+            {
+                // Fallback: inflate the drawable and convert to bitmap
+                return Task.FromResult(ResolveXmlDrawable(resourceId, imageInformation));
+            }
+        }
+
+        private DataResolverResult ResolveXmlDrawable(int resourceId, ImageInformation imageInformation)
+        {
+            var context = Context;
+            var drawable = context.Resources.GetDrawable(resourceId, context.Theme);
+
+            if (drawable == null)
+                throw new FileNotFoundException(imageInformation.Path);
+
+            int width = drawable.IntrinsicWidth > 0 ? drawable.IntrinsicWidth : DefaultDrawableSizePx;
+            int height = drawable.IntrinsicHeight > 0 ? drawable.IntrinsicHeight : DefaultDrawableSizePx;
+
+            var bitmap = Bitmap.CreateBitmap(width, height, Bitmap.Config.Argb8888);
+            using (var canvas = new Canvas(bitmap))
+            {
+                drawable.SetBounds(0, 0, canvas.Width, canvas.Height);
+                drawable.Draw(canvas);
+            }
+
+            var decoded = new DecodedImage<object>
+            {
+                Image = bitmap,
+            };
+
+            return new DataResolverResult(decoded, LoadingResult.CompiledResource, imageInformation);
         }
 
         protected Context Context => new ContextWrapper(Android.App.Application.Context);
