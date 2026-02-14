@@ -1,7 +1,9 @@
 ﻿<Project>
 
   <PropertyGroup>
-    <NetVersion>net10.0</NetVersion>
+    <NetVersion>net9.0;net10.0</NetVersion>
+    <NetVersionAndroid>net9.0-android;net10.0-android</NetVersionAndroid>
+    <NetVersionIos>net9.0-ios;net10.0-ios</NetVersionIos>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsTrimmable>true</IsTrimmable>

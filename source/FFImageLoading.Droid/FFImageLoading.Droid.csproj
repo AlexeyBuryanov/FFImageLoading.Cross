@@ -1,12 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>$(NetVersion)-android</TargetFramework>
+    <TargetFrameworks>$(NetVersionAndroid)</TargetFrameworks>
     <SupportedOSPlatformVersion>26</SupportedOSPlatformVersion>
-    <TargetPlatformVersion>36.1</TargetPlatformVersion>
     <AssemblyName>Cross.FFImageLoading.Android</AssemblyName>
     <RootNamespace>Cross.FFImageLoading.Android</RootNamespace>
     <PackageId>Cross.FFImageLoading.Android</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('net10.0'))">
+    <TargetPlatformVersion>36.1</TargetPlatformVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('net9.0'))">
+    <TargetPlatformVersion>35</TargetPlatformVersion>
   </PropertyGroup>
 
 	<ItemGroup>
