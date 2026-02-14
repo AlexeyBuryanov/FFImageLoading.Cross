@@ -9,6 +9,7 @@ namespace FFImageLoading.Droid.DataResolvers
 {
     public class ResourceDataResolver : IDataResolver
     {
+        private const int DefaultDrawableSizePx = 64;
         static ConcurrentDictionary<string, int> _resourceIdentifiersCache = new ConcurrentDictionary<string, int>();
 
         public virtual Task<DataResolverResult> Resolve(string identifier, TaskParameter parameters, CancellationToken token)
@@ -42,8 +43,7 @@ namespace FFImageLoading.Droid.DataResolvers
                 if (stream == null)
                     throw new FileNotFoundException(identifier);
 
-                // Check if the stream starts with an XML declaration or binary XML header
-                // Android binary XML resources start with 0x03, 0x00
+                // Check if the stream starts with an Android binary XML header (first byte 0x03)
                 var firstByte = stream.ReadByte();
                 stream.Position = 0;
 
@@ -71,8 +71,8 @@ namespace FFImageLoading.Droid.DataResolvers
             if (drawable == null)
                 throw new FileNotFoundException(imageInformation.Path);
 
-            int width = drawable.IntrinsicWidth > 0 ? drawable.IntrinsicWidth : 64;
-            int height = drawable.IntrinsicHeight > 0 ? drawable.IntrinsicHeight : 64;
+            int width = drawable.IntrinsicWidth > 0 ? drawable.IntrinsicWidth : DefaultDrawableSizePx;
+            int height = drawable.IntrinsicHeight > 0 ? drawable.IntrinsicHeight : DefaultDrawableSizePx;
 
             var bitmap = Bitmap.CreateBitmap(width, height, Bitmap.Config.Argb8888);
             using (var canvas = new Canvas(bitmap))
