@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-		<TargetFramework>$(NetVersion)</TargetFramework>
+		<TargetFrameworks>$(NetVersion)</TargetFrameworks>
     <AssemblyName>Cross.FFImageLoading.Core</AssemblyName>
     <RootNamespace>Cross.FFImageLoading.Core</RootNamespace>
     <PackageId>Cross.FFImageLoading.Core</PackageId>
