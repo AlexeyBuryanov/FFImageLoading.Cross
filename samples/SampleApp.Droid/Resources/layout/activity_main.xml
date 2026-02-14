@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FFImageLoading XML Placeholder Test"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Test 1: XML vector drawable as loading placeholder -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. XML placeholder (loading from URL):"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <ImageView
+        android:id="@+id/imageWithXmlPlaceholder"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:background="#EEEEEE"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Test 2: XML vector drawable as error placeholder -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. XML error placeholder (invalid URL):"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <ImageView
+        android:id="@+id/imageWithXmlErrorPlaceholder"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:background="#EEEEEE"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Test 3: XML vector drawable as both loading and error placeholder -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. XML as both placeholders (invalid URL):"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <ImageView
+        android:id="@+id/imageWithBothXmlPlaceholders"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:background="#EEEEEE" />
+
+</LinearLayout>
