@@ -8,11 +8,11 @@
     <PackageId>Cross.FFImageLoading.Android</PackageId>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('net10.0'))">
+  <PropertyGroup Condition="'$(TargetFramework)' != '' And $(TargetFramework.StartsWith('net10.0'))">
     <TargetPlatformVersion>36.1</TargetPlatformVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(TargetFramework.StartsWith('net9.0'))">
+  <PropertyGroup Condition="'$(TargetFramework)' != '' And $(TargetFramework.StartsWith('net9.0'))">
     <TargetPlatformVersion>35</TargetPlatformVersion>
   </PropertyGroup>
 
