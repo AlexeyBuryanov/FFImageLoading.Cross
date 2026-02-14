@@ -45,6 +45,13 @@ namespace FFImageLoading.Droid.DataResolvers
 
                 // Check if the stream starts with an Android binary XML header (first byte 0x03)
                 var firstByte = stream.ReadByte();
+
+                // If no data is available, treat as invalid/unsupported raw resource
+                if (firstByte == -1)
+                {
+                    stream.Dispose();
+                    return Task.FromResult(ResolveXmlDrawable(resourceId, imageInformation));
+                }
                 stream.Position = 0;
 
                 if (firstByte == 0x03)
