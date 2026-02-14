@@ -73,7 +73,8 @@ namespace FFImageLoading.Droid.DataResolvers
 
         private DataResolverResult ResolveXmlDrawable(int resourceId, ImageInformation imageInformation)
         {
-            var drawable = Context.Resources.GetDrawable(resourceId, Context.Theme);
+            var context = Context;
+            var drawable = context.Resources.GetDrawable(resourceId, context.Theme);
 
             if (drawable == null)
                 throw new FileNotFoundException(imageInformation.Path);
