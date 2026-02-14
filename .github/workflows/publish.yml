@@ -31,7 +31,7 @@ jobs:
       - name: NuGet login (Trusted Publishing)
         uses: nuget/login@v1
         with:
-          user: Oleksii_Burianov
+          user: AlexeyBuryanov
 
       - name: Push to NuGet
         run: |
