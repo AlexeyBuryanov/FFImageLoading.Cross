@@ -28,7 +28,7 @@ namespace FFImageLoading.DataResolvers
             }
 
             if (downloadedData == null)
-                throw new DownloadException($"No content: {identifier}");
+                throw new DownloadException($"HTTP resource not found: {identifier}");
 
             var imageInformation = new ImageInformation();
             imageInformation.SetPath(identifier);

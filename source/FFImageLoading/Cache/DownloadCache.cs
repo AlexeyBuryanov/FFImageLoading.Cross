@@ -80,7 +80,7 @@ namespace FFImageLoading.Cache
             return new CacheStream(memoryStream, false, filePath);
         }
 
-        protected virtual async Task<byte[]> DownloadAsync(string url, CancellationToken token, HttpClient client, TaskParameter parameters, DownloadInformation downloadInformation)
+        protected virtual async Task<byte[]?> DownloadAsync(string url, CancellationToken token, HttpClient client, TaskParameter parameters, DownloadInformation downloadInformation)
         {
             if (!parameters.Preload)
             {
@@ -105,7 +105,10 @@ namespace FFImageLoading.Cache
 
                         if (!response.IsSuccessStatusCode)
                         {
-                            return null;
+                            if (response.StatusCode == System.Net.HttpStatusCode.NotFound || response.StatusCode == System.Net.HttpStatusCode.Gone)
+                                return null;
+
+                            throw new DownloadHttpStatusCodeException(response.StatusCode);
                         }
 
                         if (response.Content == null)
