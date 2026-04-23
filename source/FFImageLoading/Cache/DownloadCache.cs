@@ -22,7 +22,7 @@ namespace FFImageLoading.Cache
 
         public virtual TimeSpan DelayBetweenRetry { get; set; } = TimeSpan.FromSeconds(1);
 
-        public virtual async Task<CacheStream> DownloadAndCacheIfNeededAsync(string url, TaskParameter parameters, Configuration configuration, CancellationToken token)
+        public virtual async Task<CacheStream?> DownloadAndCacheIfNeededAsync(string url, TaskParameter parameters, Configuration configuration, CancellationToken token)
         {
             var allowCustomKey = !string.IsNullOrWhiteSpace(parameters.CustomCacheKey)
                                        && (string.IsNullOrWhiteSpace(parameters.LoadingPlaceholderPath) || parameters.LoadingPlaceholderPath != url)
@@ -56,7 +56,7 @@ namespace FFImageLoading.Cache
                 () => configuration.Logger.Debug(string.Format("Retry download: {0}", url))).ConfigureAwait(false);
 
             if (responseBytes == null)
-                throw new HttpRequestException("No Content");
+                return null;
 
             if (allowDiskCaching)
             {
@@ -105,14 +105,7 @@ namespace FFImageLoading.Cache
 
                         if (!response.IsSuccessStatusCode)
                         {
-                            if (response.Content == null)
-                                throw new DownloadHttpStatusCodeException(response.StatusCode);
-
-                            using (response.Content)
-                            {
-                                var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                                throw new DownloadHttpStatusCodeException(response.StatusCode, content);
-                            }
+                            return null;
                         }
 
                         if (response.Content == null)
