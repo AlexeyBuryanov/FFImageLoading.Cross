@@ -1,5 +1,6 @@
 ﻿using FFImageLoading.Cache;
 using FFImageLoading.Config;
+using FFImageLoading.Exceptions;
 using FFImageLoading.Extensions;
 using FFImageLoading.Work;
 
@@ -25,6 +26,9 @@ namespace FFImageLoading.DataResolvers
                 downloadedData?.ImageStream.TryDispose();
                 token.ThrowIfCancellationRequested();
             }
+
+            if (downloadedData == null)
+                throw new DownloadException($"HTTP resource not found: {identifier}");
 
             var imageInformation = new ImageInformation();
             imageInformation.SetPath(identifier);
