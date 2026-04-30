@@ -7,12 +7,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsTrimmable>true</IsTrimmable>
-    <AssemblyVersion>2.0.0.1</AssemblyVersion>
-    <FileVersion>2.0.0.1</FileVersion>
+    <AssemblyVersion>2.0.0.2</AssemblyVersion>
+    <FileVersion>2.0.0.2</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageVersion>2.0.0.1-beta</PackageVersion>
+    <PackageVersion>2.0.0.2-beta</PackageVersion>
     <PackageProjectUrl>https://github.com/AlexeyBuryanov/FFImageLoading.Cross</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexeyBuryanov/FFImageLoading.Cross</RepositoryUrl>
     <Description>Image loading, caching and transforming library for .NET Android, .NET iOS.</Description>
