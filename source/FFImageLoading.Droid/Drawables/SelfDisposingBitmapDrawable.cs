@@ -263,12 +263,6 @@ namespace FFImageLoading.Droid.Drawables
             SetNoLongerDisplayed();
         }
 
-        protected override void JavaFinalize()
-        {
-            base.JavaFinalize();
-            SetNoLongerDisplayed();
-        }
-
         // TODO Measure if it's necessary
         //~SelfDisposingBitmapDrawable()
         //{
@@ -276,4 +270,3 @@ namespace FFImageLoading.Droid.Drawables
         //}
     }
 }
-
