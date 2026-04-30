@@ -259,8 +259,8 @@ namespace FFImageLoading.Droid.Drawables
 
         protected override void Dispose(bool disposing)
         {
-            SetNoLongerDisplayed();
             base.Dispose(disposing);
+            SetNoLongerDisplayed();
         }
 
         // TODO Measure if it's necessary
