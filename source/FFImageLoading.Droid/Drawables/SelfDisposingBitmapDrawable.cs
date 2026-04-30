@@ -259,14 +259,8 @@ namespace FFImageLoading.Droid.Drawables
 
         protected override void Dispose(bool disposing)
         {
+            SetNoLongerDisplayed();
             base.Dispose(disposing);
-            SetNoLongerDisplayed();
-        }
-
-        protected override void JavaFinalize()
-        {
-            base.JavaFinalize();
-            SetNoLongerDisplayed();
         }
 
         // TODO Measure if it's necessary
@@ -276,4 +270,3 @@ namespace FFImageLoading.Droid.Drawables
         //}
     }
 }
-
