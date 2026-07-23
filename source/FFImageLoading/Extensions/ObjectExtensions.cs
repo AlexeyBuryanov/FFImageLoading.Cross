@@ -12,7 +12,13 @@
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex) when (ex is not OutOfMemoryException
+                and not StackOverflowException
+                and not AccessViolationException
+                and not AppDomainUnloadedException
+                and not BadImageFormatException
+                and not CannotUnloadAppDomainException
+                and not InvalidProgramException)
             {
             }
 
