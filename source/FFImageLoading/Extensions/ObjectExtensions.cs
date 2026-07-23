@@ -12,7 +12,7 @@
                     return true;
                 }
             }
-            catch (ObjectDisposedException)
+            catch (Exception)
             {
             }
 
